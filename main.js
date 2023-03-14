@@ -1,11 +1,12 @@
 const myModule = (() => {
-    //============= Crear baraja de cartas =========================
+    //============= Create deck of cards =========================
         let deck = [];
         let poles = ['C','D', 'H', 'S'];
         let specials = ['A', 'J', 'K', 'Q'];
+        
         const htmlPlayerName = document.querySelector('#player_name');
-        const playerName = prompt('What is your name');
-              htmlPlayerName.innerText = playerName;
+        const playersN = prompt('What is your name');
+              htmlPlayerName.innerText = playersN;
     
     
         const createDeck = () =>{
@@ -24,17 +25,17 @@ const myModule = (() => {
             return deck
         }
     
-        // ==========  Pedir card =======================
-        const pedirCarta = ( ) => {
+        // ==========  Hit card =======================
+        const hitCard = ( ) => {
             if (deck.length === 0){
-                throw 'No quedan mas cartas en la baraja'
+                throw 'There is no more cards in the deck'
             }
             const card = deck.pop()
             console.log(card);
             return card
         }
     
-        // ==========  Valores de las cartas =======================
+        // ==========  Card value =======================
         const valueCard = (card) => {
             let value = card.substring(0, card.length - 1);
             if( isNaN(value)){
@@ -50,10 +51,10 @@ const myModule = (() => {
     
     
     
-        // const valor = valorCarta(pedirCarta())
+        // const value = valueCard(hitCard())
         const btnNew          = document.querySelector('#btn_new');
         const btnHit          = document.querySelector('#btn_hit');
-        const btnStand        = document.querySelector('#btn_stop');
+        const btnStand        = document.querySelector('#btn_stand');
         const divPlayersCards  = document.querySelector('#player');
         const divCpuCards      = document.querySelector('#cpu');
         const htmlPlayerPoints = document.querySelector('#points_player');
@@ -69,10 +70,10 @@ const myModule = (() => {
             pointsPlayers = pointsPlayers + valueCard(card);
             htmlPlayerPoints.innerText = pointsPlayers;
     
-            const imgCarta = document.createElement('img');
-            imgCarta.src = `img/${card}.png`;
-            imgCarta.classList.add('cartas');
-            divPlayersCards.append(imgCarta);
+            const imgCard = document.createElement('img');
+            imgCard.src = `img/${card}.png`;
+            imgCard.classList.add('cards');
+            divPlayersCards.append(imgCard);
             
             if ( pointsPlayers > 21 ){
                 btnHit
@@ -97,10 +98,10 @@ const myModule = (() => {
                 pointsCpu = pointsCpu + valueCard(card);
                 htmlCpuPoints.innerText = pointsCpu;
             
-                const imgCarta = document.createElement('img');
-                imgCarta.src = `/img/${card}.png`;
-                imgCarta.classList.add('cartas');
-                divCpuCards.append(imgCarta);
+                const imgCard = document.createElement('img');
+                imgCard.src = `/img/${card}.png`;
+                imgCard.classList.add('cards');
+                divCpuCards.append(imgCard);
                 if(pointsPlayers > 21 ){
                     break;
                 }
