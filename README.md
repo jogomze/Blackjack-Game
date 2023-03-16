@@ -6,13 +6,13 @@ Description: This is a simple web application that allows the user to play the c
 
 :diamonds:	:spades:	Features: :hearts:	:clubs:	
 
-Customizable player name
-Shuffle deck of cards
-Deal two cards to player and computer
-Hit to receive additional cards
-Stand to keep current hand
-Evaluate hand values and determine winner
-Reset game to play again
+- Customizable player name
+- Shuffle deck of cards
+- Deal two cards to player and computer
+- Hit to receive additional cards
+- Stand to keep current hand
+- Evaluate hand values and determine winner
+- Reset game to play again
 
 
 :game_die:	 Technologies used: HTML, CSS, JavaScript, and the Underscore.js library for shuffling the deck of cards. :game_die:	
